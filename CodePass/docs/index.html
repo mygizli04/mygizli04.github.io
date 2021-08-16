@@ -74,6 +74,59 @@
 					<h1>Documentation</h1>
 				</a>
 				<p>Documentation is available at <a href="https://sbeve.me/CodePass/docs/">my website</a></p>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h1>Example</h1>
+				</a>
+				<p>This module is built with typescript, so it comes with .d.ts files! But here&#39;s a javascript example showing all possible errors/uses.</p>
+				<pre><code class="language-javascript"><span style="color: #008000">// Import codepass</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">codepass</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;./codepass.js&#039;</span><span style="color: #000000">)</span>
+
+<span style="color: #008000">// Create account</span>
+<span style="color: #008000">// Note: All methods in this lib are async functions</span>
+<span style="color: #001080">codepass</span><span style="color: #000000">.</span><span style="color: #795E26">create</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;YOUR-API-KEY&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;USERNAME&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;PASSWORD&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Created account!&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Uh oh, account creation failed! Let&#039;s see why...</span>
+
+<span style="color: #000000">    </span><span style="color: #AF00DB">switch</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">case</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;Username already in use.&quot;</span><span style="color: #000000">:</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Sorry, the username you have chosen is already in use. Please try again.&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">case</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;Invalid API key.&quot;</span><span style="color: #000000">:</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Uh oh, my developer has to fix my API key!&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">default</span><span style="color: #000000">:</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Oh no, some internal error! Do you have an internet connection?&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">    }</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">process</span><span style="color: #000000">.</span><span style="color: #795E26">exit</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">})</span>
+
+<span style="color: #008000">// Check account</span>
+<span style="color: #001080">codepass</span><span style="color: #000000">.</span><span style="color: #795E26">check</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;YOUR-API-KEY&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;USERNAME&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;PASSWORD&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">result</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// result === [true/false, CheckResult] (see https://sbeve.me/CodePass/docs/modules.html#CheckResult)</span>
+
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">result</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">]) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Success!&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Failure because of &quot;</span><span style="color: #000000"> + </span><span style="color: #001080">result</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Oops! An error occured! Your API token is probably incorrect.</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;Invalid API key.&quot;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Oops. Please ask my dev to fix me.&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #001080">process</span><span style="color: #000000">.</span><span style="color: #795E26">exit</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #008000">// If you&#039;re here it&#039;s an internal error. Check your internet connection!</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Uh oh, it appears there are some internal errors that I cannot fix!&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #001080">process</span><span style="color: #000000">.</span><span style="color: #795E26">exit</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }</span>
+
+<span style="color: #000000">});</span>
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -86,6 +139,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#CheckResult" class="tsd-kind-icon">Check<wbr>Result</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#check" class="tsd-kind-icon">check</a>
 					</li>
