@@ -70,6 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="modules.html#changePassword" class="tsd-kind-icon">change<wbr>Password</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#check" class="tsd-kind-icon">check</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#create" class="tsd-kind-icon">create</a></li>
 							</ul>
@@ -85,7 +86,7 @@
 					<div class="tsd-signature tsd-kind-icon">Check<wbr>Result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;InvalidAccount&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;WrongPassword&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/91e595a/index.ts#L13">index.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/d44cdf9/index.ts#L13">index.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -98,6 +99,59 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="changePassword" class="tsd-anchor"></a>
+					<h3>change<wbr>Password</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">change<wbr>Password<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, username<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, oldPassword<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, newPassword<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/d44cdf9/index.ts#L94">index.ts:94</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change a user&#39;s password.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The API key to be used. Details available on <a href="https://api.breezecodes.com/" class="external">API page</a>.</p>
+									</div>
+								</li>
+								<li>
+									<h5>username: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Username to change the password on.</p>
+									</div>
+								</li>
+								<li>
+									<h5>oldPassword: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Current password of the user.</p>
+									</div>
+								</li>
+								<li>
+									<h5>newPassword: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New password to be used.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="check" class="tsd-anchor"></a>
 					<h3>check</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -107,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/91e595a/index.ts#L24">index.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/d44cdf9/index.ts#L24">index.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,7 +208,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/91e595a/index.ts#L61">index.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/mygizli04/CodePass/blob/d44cdf9/index.ts#L61">index.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,6 +259,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#CheckResult" class="tsd-kind-icon">Check<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#changePassword" class="tsd-kind-icon">change<wbr>Password</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#check" class="tsd-kind-icon">check</a>
